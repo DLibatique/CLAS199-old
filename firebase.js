@@ -10,7 +10,6 @@ var config = {
 firebase.initializeApp(config);
 
 $('#fileUpload').submit(() => {
-    console.log('Form submitted');
     const ref = firebase.storage().ref();
     const file = $('input[type="file"]').get(0).files[0];
     const name = (new Date()).getTime() + '-' + file.name;
@@ -18,5 +17,6 @@ $('#fileUpload').submit(() => {
         contentType: file.type
     };
     ref.child(name).put(file, metadata);
+    $('#form').empty().html('<p>Thanks!</p>');
     return false;
 });

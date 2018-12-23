@@ -51,6 +51,7 @@
         <div class="container {{ page.style }}">
           {{ page.content }}
           {% if page.title == 'Submit' %}
+          <div id="form">
             <form id="fileUpload">
               <input 
                 type="file"
@@ -58,6 +59,7 @@
               />
               <button type="submit" id="submit-btn">Upload</button>
             </form>
+          </div>
           {% endif %}
         </div>
       </div>
