@@ -8,3 +8,15 @@ var config = {
 };
 
 firebase.initializeApp(config);
+
+$('#fileUpload').submit(async () => {
+    console.log('Form submitted');
+    const ref = firebase.storage().ref();
+    const file = $('input[type="file"]').get(0).files[0];
+    const name = (new Date()).getTime() + '-' + file.name;
+    const metadata = {
+        contentType: file.type
+    };
+    await ref.child(name).put(file, metadata);
+    return false;
+});
