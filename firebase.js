@@ -9,7 +9,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-$('#fileUpload').submit(async () => {
+$('#fileUpload').submit(() => {
     console.log('Form submitted');
     const ref = firebase.storage().ref();
     const file = $('input[type="file"]').get(0).files[0];
@@ -17,6 +17,6 @@ $('#fileUpload').submit(async () => {
     const metadata = {
         contentType: file.type
     };
-    await ref.child(name).put(file, metadata);
+    ref.child(name).put(file, metadata);
     return false;
 });
