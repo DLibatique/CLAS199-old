@@ -50,6 +50,15 @@
         {% endif %}
         <div class="container {{ page.style }}">
           {{ page.content }}
+          {% if page.title == 'Submit' %}
+            <form id="fileUpload">
+              <input 
+                type="file"
+                accept=".doc,.docx,.pdf"
+              />
+              <button type="submit" id="submit-btn">Upload</button>
+            </form>
+          {% endif %}
         </div>
       </div>
     {% endfor %}
